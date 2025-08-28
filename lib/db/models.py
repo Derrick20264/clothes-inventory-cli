@@ -116,5 +116,5 @@ class ClothingItem(Base):
         return item
 
 
-# Create tables if they don’t exist
+
 Base.metadata.create_all(engine)
