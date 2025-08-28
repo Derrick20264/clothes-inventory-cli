@@ -3,7 +3,7 @@
 from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 
-
+# Base + Engine + Session
 Base = declarative_base()
 engine = create_engine("sqlite:///clothes_store.db", echo=False)
 Session = sessionmaker(bind=engine)
@@ -16,9 +16,10 @@ class Store(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True, nullable=False)
     location = Column(String, nullable=False)
+
+    # Relationship with ClothingItem
     items = relationship("ClothingItem", back_populates="store", cascade="all, delete")
 
-    
     @classmethod
     def create(cls, name, location):
         if not name or not location:
@@ -66,10 +67,10 @@ class ClothingItem(Base):
     size = Column(String, nullable=False)
     color = Column(String, nullable=False)
     price = Column(Float, nullable=False)
+
     store_id = Column(Integer, ForeignKey("stores.id"))
     store = relationship("Store", back_populates="items")
 
-   
     @classmethod
     def create(cls, name, size, color, price, store_id):
         if not name or not size or not color or price < 0:
@@ -115,5 +116,5 @@ class ClothingItem(Base):
         return item
 
 
-
+# Create tables if they don’t exist
 Base.metadata.create_all(engine)
