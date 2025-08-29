@@ -1,75 +1,64 @@
 # Clothes Inventory CLI
 
-A command-line interface (CLI) application for managing clothing stores and their inventory.  
-Built with **Python** and **SQLAlchemy**, this app allows you to create, view, update, and delete stores and clothing items.
+A simple command-line interface (CLI) application for managing a clothes inventory.  
+Built with **Python** and **SQLite**, this project demonstrates CRUD operations, clean code design, and error handling.
 
 ---
 
-## Features
-- Manage **Stores**
-  - Add a new store
-  - View all stores
-  - Update store details
-  - Delete a store (and its items)
-
-- Manage **Clothing Items**
-  - Add a new clothing item to a store
-  - View all clothing items
-  - Update clothing item details
-  - Delete clothing items
+## Learning Goals
+This project was created to demonstrate:
+- Building a Python CLI application from scratch.
+- Performing **CRUD operations** (Create, Read, Update, Delete) with SQLite.
+- Applying **clean coding practices** and modular design.
+- Using **error handling** and input validation for better user experience.
+- Communicating technical concepts clearly through documentation.
 
 ---
 
 ## Requirements
 - Python 3.8+
-- Virtual environment (recommended)
+- SQLite (built-in with Python)
+- Optional: [tabulate](https://pypi.org/project/tabulate/) for nicer table formatting
 
----
+Install tabulate if you want formatted tables:
+```bash
+pip install tabulate
 
-## Setup
+## Installation
+1. Clone this repository:
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/<your-username>/<your-repo>.git
-   cd clothes-inventory-cli
+git clone git@github.com:Derrick20264/clothes-inventory-cli.git
+cd clothes-inventory-cli
 
-2. Create and activate a virtual environment:
-python -m venv venv
-source venv/bin/activate   # Mac/Linux
-venv\Scripts\activate      # Windows
+2. Ensure you have a SQLite database. A sample clothes_inventory.db is included.
+To create your own, run:
+sqlite3 clothes_inventory.db ".databases"
 
-3. Install dependencies:
-pip install -r requirements.txt
-
-4. Run database migrations (tables will be created automatically when running the app).
-## Usage
-
-Start the CLI:
-
+3. Run the CLI:
 python cli.py
 
+## Usage
 
-You’ll see a menu with options like:
+After starting the program, you will see a menu like this:
 
-Manage Stores
+===== Clothes Inventory Management =====
+1. View all items
+2. Add new item
+3. Update item
+4. Delete item
+5. Exit
 
-Manage Clothing Items
-
-Exit
-
-Follow the prompts to interact with the inventory system.
-
-## File Structure
+## Project Structure
 clothes-inventory-cli/
-│
-├── lib/
-│   └── db/
-│       └── models.py        # SQLAlchemy models for Store & ClothingItem
-│
-├── cli.py                   # Main CLI entry point
-├── requirements.txt         # Project dependencies
-└── README.md                # Documentation
+│-- cli.py                # Main application logic
+│-- clothes_inventory.db   # SQLite database
+│-- README.md              # Project documentation
+
+## Author
+
+Created by Derrick Wachira as a Phase Project.
+This project demonstrates Python fundamentals, database management, and technical communication.
 
 ## License
-
-This project is for educational purposes (Phase 3 Python + SQLAlchemy CLI project).
+This project is for educational purposes only (Phase 3 Python + SQLAlchemy CLI project).  
+No permission is granted to use this project for commercial purposes.
