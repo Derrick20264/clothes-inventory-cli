@@ -3,7 +3,7 @@
 A simple command-line interface (CLI) application for managing a clothes inventory.  
 Built with **Python** and **SQLite**, this project demonstrates CRUD operations, clean code design, and error handling.
 
----
+
 
 ## Learning Goals
 This project was created to demonstrate:
@@ -13,52 +13,66 @@ This project was created to demonstrate:
 - Using **error handling** and input validation for better user experience.
 - Communicating technical concepts clearly through documentation.
 
----
+
 
 ## Requirements
 - Python 3.8+
 - SQLite (built-in with Python)
-- Optional: [tabulate](https://pypi.org/project/tabulate/) for nicer table formatting
-
-Install tabulate if you want formatted tables:
-```bash
-pip install tabulate
+- Pipenv (for managing dependencies)
 
 ## Installation
-1. Clone this repository:
-
+1. Clone this repository: 
+```bash
 git clone git@github.com:Derrick20264/clothes-inventory-cli.git
 cd clothes-inventory-cli
+```
+2. Install dependencies using Pipenv:
+```bash
+pipenv install
+```
 
-2. Ensure you have a SQLite database. A sample clothes_inventory.db is included.
-To create your own, run:
-sqlite3 clothes_inventory.db ".databases"
-
-3. Run the CLI:
-python cli.py
+3. Activate the virtual environment:
+```bash
+pipenv shell
+```
 
 ## Usage
 
-After starting the program, you will see a menu like this:
+Run the CLI application:
+```bash
+python cli.py
+```
 
-===== Clothes Inventory Management =====
-1. View all items
-2. Add new item
-3. Update item
-4. Delete item
-5. Exit
+Main Menu Options:
 
-## Project Structure
-clothes-inventory-cli/
-│-- cli.py                # Main application logic
-│-- clothes_inventory.db   # SQLite database
-│-- README.md              # Project documentation
+1. **Stores**
+
+- List Stores
+
+- Add Store
+
+- Delete Store
+
+- Update Store
+
+- View Store Items
+
+2. **Clothing Items**
+
+- List Clothing Items
+
+- Add Clothing Item
+
+- Delete Clothing Item
+
+- Update Clothing Item
+
+3. **Exit**
+
 
 ## Author
 
 Created by Derrick Wachira as a Phase Project.
-This project demonstrates Python fundamentals, database management, and technical communication.
 
 ## License
 This project is for educational purposes only (Phase 3 Python + SQLAlchemy CLI project).  
-No permission is granted to use this project for commercial purposes.
