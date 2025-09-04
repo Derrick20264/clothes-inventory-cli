@@ -40,8 +40,28 @@ pipenv shell
 
 Run the CLI application:
 ```bash
-python cli.py
+python -m lib.db.seed
 ```
+Confirm seeded data:
+```bash
+sqlite3 clothes_store.db "SELECT * FROM stores;"
+sqlite3 clothes_store.db "SELECT * FROM clothing_items;"
+```
+**Database**
+- stores: id, name, location
+
+- clothing_items: id, name, size, color, price, store_id
+
+**Sample Data**
+Stores:
+1 | Fashion Hub | Downtown
+2 | Trendy Wear | Uptown
+
+Clothing Items:
+1 | T-Shirt       | M  | Blue  | 15.0 | Store 1
+2 | Jeans         | 32 | Black | 40.0 | Store 1
+3 | Summer Dress  | S  | Red   | 30.0 | Store 2
+
 
 Main Menu Options:
 
@@ -76,3 +96,5 @@ Created by Derrick Wachira as a Phase Project.
 
 ## License
 This project is for educational purposes only (Phase 3 Python + SQLAlchemy CLI project).  
+
+

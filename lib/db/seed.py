@@ -1,26 +1,19 @@
-from models import Base, Customer, Clothes, Purchase
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from datetime import date
+from lib.db.models import Base, Store, ClothingItem, session
 
-engine = create_engine("sqlite:///clothes_store.db")
-Session = sessionmaker(bind=engine)
-session = Session()
+# Clear existing data
+session.query(ClothingItem).delete()
+session.query(Store).delete()
 
-# Clear tables
-session.query(Purchase).delete()
-session.query(Customer).delete()
-session.query(Clothes).delete()
+# Add sample stores
+store1 = Store(name="Fashion Hub", location="Downtown")
+store2 = Store(name="Trendy Wear", location="Uptown")
 
-# Add sample customers
-c1 = Customer(name="Alice", email="alice@email.com", phone="12345")
-c2 = Customer(name="Bob", email="bob@email.com", phone="67890")
+# Add clothing items
+shirt = ClothingItem(name="T-Shirt", size="M", color="Blue", price=15.0, store=store1)
+jeans = ClothingItem(name="Jeans", size="32", color="Black", price=40.0, store=store1)
+dress = ClothingItem(name="Summer Dress", size="S", color="Red", price=30.0, store=store2)
 
-# Add clothes
-shirt = Clothes(name="T-Shirt", category="Top", price=15.0, quantity=20)
-jeans = Clothes(name="Jeans", category="Bottom", price=30.0, quantity=10)
-
-# Commit
-session.add_all([c1, c2, shirt, jeans])
+# Commit to DB
+session.add_all([store1, store2, shirt, jeans, dress])
 session.commit()
 session.close()
